@@ -14,4 +14,5 @@ echo 'if [ -f ~/.bash_fzf ]; then
 fi' >> ~/.bashrc
 
 rm -rf /tmp/bash-setup
+
 ```
