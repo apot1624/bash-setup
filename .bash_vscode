@@ -1,0 +1,15 @@
+# 修复 tmux 中 code 命令无法使用的问题
+
+reload_vscode_ipc() {
+  # 寻找最新的 VSCode IPC 套接字
+  local vscode_ipc_socket=$(ls -tr /run/user/$UID/vscode-ipc-* 2>/dev/null | tail -n 1)
+  if [ -n "$vscode_ipc_socket" ]; then
+    export VSCODE_IPC_HOOK_CLI="$vscode_ipc_socket"
+    # echo "已设置 VSCODE_IPC_HOOK_CLI"  # 可以取消注释这行来查看是否设置成功
+  else
+    echo "警告：未找到 VSCode IPC 套接字，code 命令可能无法正常工作。"
+  fi
+}
+
+# 每次打开新的 shell 时自动执行
+reload_vscode_ipc

@@ -1,0 +1,17 @@
+rgf() {
+  local case_opt="-i"           # 默认不敏感
+  local less_ignore_case="-I"   # 默认 less 忽略大小写
+  if [[ "$1" == "-s" ]]; then
+    case_opt=""                  # 无 -i，即敏感模式
+    less_ignore_case=""          # less 也变为敏感（去掉 -I）
+    shift
+  fi
+  local query="$*"
+  rg --vimgrep --color=always $case_opt "$query" | sort -t: -k1,1 -k2,2n | \
+    fzf --ansi --delimiter : \
+        --preview 'bat --color=always --highlight-line {2} {1}' \
+        --preview-window 'up,80%,border-bottom,+{2}' \
+        --bind "enter:execute(bat {1} --pager='less -R $less_ignore_case +{2} +/\"$query\"')" \
+	--bind "ctrl-o:execute(vim {1} +{2})" \
+        --bind "ctrl-l:execute(lingma -g {1}:{2})"
+}
