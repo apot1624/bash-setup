@@ -13,3 +13,5 @@ alias ts='$HOME/.tmux/plugins/tmux-resurrect/scripts/save.sh'
 alias tr='$HOME/.tmux/plugins/tmux-resurrect/scripts/restore.sh'
 alias tl='tmux ls'
 alias tj='tmux join-pane -t'
+
+alias lm='source ~/.bash_vscode && lingma'
