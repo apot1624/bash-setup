@@ -5,7 +5,7 @@ bash configuration setup
 ```bash
 git clone https://github.com/apot1624/bash-setup.git /tmp/bash-setup
 
-cp -i /tmp/bash-setup/.bash* ~
+cp /tmp/bash-setup/.bash* ~
 cp /tmp/bash-setup/.cdup.sh ~
 chmod +x ~/.cdup.sh
 
