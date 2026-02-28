@@ -13,6 +13,6 @@ rgf() {
         --preview-window 'up,80%,border-bottom,+{2}' \
         --bind "enter:execute(bat {1} --pager='less -R $less_ignore_case +{2} +/\"$query\"')" \
         --bind "ctrl-o:execute(vim {1} +{2})" \
-        --bind "ctrl-l:execute(lm -g {1}:{2})"
+        --bind "ctrl-l:execute(source ~/.bash_vscode && lingma -g {1}:{2})"
 }
 
