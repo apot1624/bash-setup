@@ -12,6 +12,6 @@ rgf() {
         --preview 'bat --color=always --highlight-line {2} {1}' \
         --preview-window 'up,80%,border-bottom,+{2}' \
         --bind "enter:execute(bat {1} --pager='less -R $less_ignore_case +{2} +/\"$query\"')" \
-	--bind "ctrl-o:execute(vim {1} +{2})" \
+        --bind "ctrl-o:execute(vim {1} +{2})" \
         --bind "ctrl-l:execute(lingma -g {1}:{2})"
 }
