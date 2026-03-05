@@ -17,5 +17,3 @@ alias tj='tmux join-pane -t'
 alias lvim='NVIM_APPNAME="lazyvim" nvim'
 export VISUAL=nvim
 export EDITOR="$VISUAL"
-
-alias lm='source ~/.bash_vscode && lingma'
