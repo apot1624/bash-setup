@@ -1,4 +1,4 @@
-# 修复 tmux 和 ranger 中 code 命令无法使用的问题
+# 修复 tmux 中 code 命令无法使用的问题
 
 reload_vscode_ipc() {
   # 寻找最新的 VSCode IPC 套接字
@@ -17,4 +17,12 @@ lingma() {
     reload_vscode_ipc
     # 再调用真实的 lingma 命令，并传递所有参数
     command lingma "$@"
+}
+
+# 包装 code 命令，使用前自动加载环境变量
+code() {
+    # 每次打开code前自动执行
+    reload_vscode_ipc
+    # 再调用真实的 code 命令，并传递所有参数
+    command code "$@"
 }
