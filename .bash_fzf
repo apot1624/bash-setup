@@ -43,3 +43,6 @@ rgf() {
         --bind "ctrl-o:execute(vim {1} +{2})" \
         --bind "ctrl-l:execute(source ~/.bash_vscode && lingma -g {1}:{2})"
 }
+
+## 为 lingma 命令启用 fzf 风格的 ** 补全
+complete -F _fzf_path_completion -o default -o bashdefault lingma
