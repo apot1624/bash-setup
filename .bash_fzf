@@ -40,7 +40,7 @@ rgf() {
         --preview 'bat --color=always --highlight-line {2} {1}' \
         --preview-window 'up,80%,border-bottom,+{2}' \
         --bind "enter:execute(bat {1} --pager='less -R ${less_opts[@]} +{2} +/\"$pattern\"')" \
-        --bind "ctrl-o:execute(vim {1} +{2})" \
+        --bind "ctrl-o:execute(nvim {1} +{2})" \
         --bind "ctrl-l:execute(source ~/.bash_vscode && lingma -g {1}:{2})"
 }
 
