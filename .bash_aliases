@@ -17,3 +17,9 @@ alias tj='tmux join-pane -t'
 alias lvim='NVIM_APPNAME="lazyvim" nvim'
 export VISUAL=nvim
 export EDITOR="$VISUAL"
+
+# 让 Ctrl+W 按路径删除(emacs模式)
+stty werase undef
+bind '"\C-w": unix-filename-rubout'
+# 启用 BASH 的 Vi 模式
+set -o vi
