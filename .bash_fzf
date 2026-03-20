@@ -50,8 +50,8 @@ rgf() {
   rg --vimgrep --color=always "${extra_opts[@]}" "$pattern" "${paths[@]}" | sort -t: -k1,1 -k2,2n | \
     fzf --ansi --delimiter : \
         --preview 'bat --color=always --highlight-line {2} {1}' \
-        --preview-window 'up,80%,border-bottom,+{2}' \
-        --bind "enter:execute(bat {1} --pager='less -R ${less_opts[@]} +{2} +/\"$pattern\"')" \
+        --preview-window 'up,62%,border-bottom,+{2}-9' \
+        --bind "enter:execute(bat {1} --pager='less -R -j9 ${less_opts[@]} +{2} +/\"$pattern\"')" \
         --bind "ctrl-o:execute(nvim {1} +{2})" \
         --bind "ctrl-l:execute(source ~/.bash_vscode && lingma -g {1}:{2})"
 }
